@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SceTypes.hpp"
+#include "prx/libc/include/FileStream.hpp"
 
 extern "C" {
 
@@ -57,7 +58,7 @@ int APS5_VABI _LXp_setw_nid_postfix();
 int APS5_VABI _LXp_sqrtx_nid_postfix();
 int APS5_VABI _LXp_subx_nid_postfix();
 int APS5_VABI _Logpoly_nid_postfix();
-int APS5_VABI _Nnl_nid_postfix();
+std::int64_t APS5_VABI _Nnl_nid_postfix(FileStream* file, std::uint8_t* first, std::uint8_t* last);
 int APS5_VABI _Pow_nid_postfix();
 int APS5_VABI _Quad_nid_postfix();
 int APS5_VABI _Quadph_nid_postfix();

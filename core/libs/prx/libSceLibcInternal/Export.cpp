@@ -1485,9 +1485,10 @@ int APS5_VABI _Mbtowc_nid_postfix() {
     return 0;
 }
 
-int APS5_VABI _Nnl_nid_postfix() {
-    NotImplemented_nid_no_patch(__func__);
-    return 0;
+std::int64_t APS5_VABI _Nnl_nid_postfix(FileStream*, std::uint8_t* first, std::uint8_t* last) {
+    auto firstAddress = reinterpret_cast<std::uintptr_t>(first);
+    auto lastAddress = reinterpret_cast<std::uintptr_t>(last);
+    return lastAddress > firstAddress ? static_cast<std::int64_t>(lastAddress - firstAddress) : 0;
 }
 
 int APS5_VABI sceLibcInternalUnknown_1hGmBh83dL8_nid_no_patch() {
